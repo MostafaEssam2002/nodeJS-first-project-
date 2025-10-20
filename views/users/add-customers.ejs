@@ -1,0 +1,80 @@
+ 
+       <%- include("../components/nav") %>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <div style="display: flex; align-items: center; gap: 30px;">
+                    <div class="github-icons">
+                        <i class="fab fa-github"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-code-branch"></i>
+                        <i class="far fa-bookmark"></i>
+                    </div>
+                    <h1 class="header-title">Add New Customer</h1>
+                </div>
+            </div>
+
+            <!-- Form -->
+            <div class="form-container">
+                <form method="post" action="/add-customers" id="addCustomerForm">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Full Name</label>
+                            <input name="name" type="text" class="form-control-custom" id="fullName" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Gender</label>
+                            <select name="gender" class="form-control-custom" id="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Country</label>
+                            <select name="country" class="form-control-custom" id="gender" required>
+                                <option value="">Select Country</option>
+                                <% states.forEach(element => { %>
+                                    <option value="<%=element['_id']%>"><%=element['name']%></option>
+                                <% }) %>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Age</label>
+                            <input name="age" type="number" class="form-control-custom" id="age" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Email</label>
+                            <input name="email" type="email" class="form-control-custom" id="email" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Phone</label>
+                            <input name="phone" type="tel" class="form-control-custom" id="phone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-save"></i> Save Customer
+                        </button>
+                        <button type="button" class="btn-cancel" onclick="window.location.href='index.html'">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
