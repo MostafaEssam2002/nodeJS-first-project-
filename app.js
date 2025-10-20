@@ -4,7 +4,7 @@ const routes = require("./routes/web");
 // const edituserroutes = require("./routes/edituser");
 // const Mydata = require("../models/Mydata");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 // ++++++++++++++++++++++++++++++++
 const path = require("path");
 const livereload = require("livereload");
